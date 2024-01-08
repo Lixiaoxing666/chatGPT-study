@@ -104,7 +104,7 @@ Post.findOneAndRemove({ title: 'Mongoose Guide' }, function(err) {
 javascript
 Copy code
 Post.find({})
-    .populate('author')  // 这里指定了要联查的字段
+    .populate('author')  // todo 这里指定了要联查的字段
     .exec(function(err, posts) {
         if (err) return console.error(err);
         console.log('Posts with author info:', posts);
@@ -131,7 +131,7 @@ javascript
 Copy code
 const pageSize = 10;
 const page = 1;
-const searchQuery = { title: /guide/i };  // 使用正则表达式进行不区分大小写的匹配
+const searchQuery = { title: /guide/i };  //todo 使用正则表达式进行不区分大小写的匹配
 
 Post.find(searchQuery)
     .skip(pageSize * (page - 1))
