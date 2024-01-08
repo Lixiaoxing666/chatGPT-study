@@ -195,6 +195,7 @@ GPT
 
 bash
 Copy code
+//todo 查看git当前所在分支命令
 git branch
 这个命令会列出本地仓库中的所有分支。当前分支会用星号(*)标记并通常以不同颜色显示。
 
