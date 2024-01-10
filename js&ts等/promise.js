@@ -19,7 +19,8 @@ let promise = new Promise((resolve, reject) => {
 
 promise.then(result => console.log(result))
     .catch(error => console.log(error));
-Async/Await：
+
+//fixme Async/Await：
 
 由来：为了让异步代码看起来更像同步代码，提高代码的可读性和维护性。
 定义：async函数返回一个Promise，await使得异步操作的代码看起来像同步代码。
@@ -49,7 +50,8 @@ Promise.all(iterable)：接收一个Promise数组（或任何可迭代的对象�
 
 Promise.race(iterable)：同样接收一个Promise数组（或任何可迭代的对象），但只要数组中的任何一个Promise解决或拒绝，就立即解析或拒绝。
 
-Promise.allSettled(iterable)：接收一个Promise数组，并在所有Promise都完成（无论成功还是失败）后返回一个新的Promise，这个新的Promise解析为一个对象数组，每个对象表示对应的Promise的结果。
+Promise.allSettled(iterable)：接收一个Promise数组，并在所有Promise都完成（无论成功还是失败）后返回一个新的Promise，
+这个新的Promise解析为一个对象数组，每个对象表示对应的Promise的结果。
 
 Promise.resolve(value)：返回一个解析为给定值的Promise。
 
@@ -145,12 +147,15 @@ User
 12 console.log('outer');
 13
 14 -------output-------
+
     15 before resolved
 16 after resolved
 17 outer
 18 resolved                                                        这段代码结果是否正确
+
 ChatGPT
-是的，这段代码的输出结果是正确的。在JavaScript的Promise中，构造函数（Promise构造器）中的代码是同步执行的，而.then()方法中的代码是异步执行的。因此，执行流程如下：
+//fixme 是的，这段代码的输出结果是正确的。
+// 在JavaScript的Promise中，构造函数（Promise构造器）中的代码是同步执行的，而.then()方法中的代码是异步执行的。因此，执行流程如下：
 
 打印 'before resolved'。
 执行 resolve()。
@@ -160,11 +165,13 @@ ChatGPT
 因此，最终的输出顺序为 'before resolved'、'after resolved'、'outer'、'resolved'。
 
 User
-async函数返回一个Promise，await使得异步操作的代码看起来像同步代码。但他终究不是同步的，如果一个代码段有个多async，await他们是否会发生阻塞，他们的执行顺序会是什么样子的，请举代码说明
+async函数返回一个Promise，await使得异步操作的代码看起来像同步代码。但他终究不是同步的，如果一个代码段有个多async，await他们是否会发生阻塞，
+他们的执行顺序会是什么样子的，请举代码说明
 ChatGPT
-在包含多个async和await的代码段中，await关键字会导致JavaScript运行时等待Promise解决，但它不会阻塞整个程序的执行，因为await只在async函数的上下文中暂停执行。函数外的代码会继续执行。
+在包含多个async和await的代码段中，await关键字会导致JavaScript运行时等待Promise解决，但它不会阻塞整个程序的执行，因为await只在
+async函数的上下文中暂停执行。函数外的代码会继续执行。
 
-每个await表达式会按顺序等待其Promise解决，然后继续执行async函数内部的下一行代码。如果有多个async函数调用，它们会并行启动，但各自内部的await会按顺序等待。
+//fixme 每个await表达式会按顺序等待其Promise解决，然后继续执行async函数内部的下一行代码。如果有多个async函数调用，它们会并行启动，但各自内部的await会按顺序等待。
 
 javascript
 Copy code
